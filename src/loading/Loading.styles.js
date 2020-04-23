@@ -12,5 +12,4 @@ export default StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
-  newUserBar: {},
 });

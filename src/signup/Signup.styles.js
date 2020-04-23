@@ -12,5 +12,12 @@ export default StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
-  newUserBar: {},
+  questionAndAnswer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "lightblue",
+    padding: 10,
+  },
 });

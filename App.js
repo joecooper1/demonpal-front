@@ -7,24 +7,23 @@ import HomePage from "./src/homepage/HomePage";
 import Signup from "./src/signup/Signup";
 import Loading from "./src/loading/Loading";
 
-const getUserFromLocalStorage = async () => {
-  const username = await AsyncStorage.getItem("username");
-  if (username)
-    this.setState({
-      user: username,
-    });
-};
-
 export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    getUserFromLocalStorage();
+    if (user === null) getUserFromLocalStorage();
   });
 
+  const getUserFromLocalStorage = async () => {
+    const username = await AsyncStorage.getItem("username");
+    if (username) setUser(username);
+    setLoading(false);
+  };
+
   if (loading) return <Loading />;
-  if (user) return <HomePage user={user} />;
-  else return <Signup />;
+  else {
+    if (user) return <HomePage user={user} />;
+    else return <Signup />;
+  }
 }

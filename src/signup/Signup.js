@@ -1,35 +1,56 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+
 import Button from "react-native-button";
+import { NativeRouter } from "@react-navigation/native";
 
 import styles from "./Signup.styles";
 
+import SignupForm from "./SignupForm";
+
+const Login = () => {};
+
 export default function Signup() {
-  const [progression, setProgression] = useState(0);
+  const [logInOption, setLogInOption] = useState("signup");
 
-  //Decide on which question to ask based on progression through dialogue
-  const determineQuestion = () => {
-    if (progression === 0) {
-      return <Text>Hello</Text>;
-    }
-  };
-
-  //Decide on answers
-  const determineAnswer = () => {
-    if (progression === 0) {
-      return (
-        <Button>
-          <Text>Hello</Text>
-        </Button>
-      );
-    }
+  const chooseOption = (option) => {
+    setLogInOption(option);
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.questionAndAnswer}>
-        <View style={styles.question}>{determineQuestion()}</View>
-        <View style={styles.answer}>{determineAnswer()}</View>
+    <View style={styles.page}>
+      <View style={styles.container}>
+        <View style={styles.smallContainer}>
+          <View style={styles.signUpOptions}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                chooseOption("login");
+              }}
+            >
+              <Text>Login</Text>
+            </TouchableOpacity>
+            <Text> or </Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                chooseOption("signup");
+              }}
+            >
+              <Text>Sign up</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.usernameForm}>
+            <SignupForm logInOption={logInOption} />
+          </View>
+        </View>
       </View>
     </View>
   );

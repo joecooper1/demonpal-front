@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { AsyncStorage } from "react-native";
 
 import HomePage from "./src/homepage/HomePage";

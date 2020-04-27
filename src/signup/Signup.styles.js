@@ -14,7 +14,6 @@ export default StyleSheet.create({
   },
   smallContainer: {
     width: winWidth * 0.8,
-    height: winHeight * 0.5,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",

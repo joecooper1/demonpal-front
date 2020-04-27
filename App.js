@@ -12,6 +12,7 @@ export default function App() {
 
   useEffect(() => {
     if (user === null) getUserFromLocalStorage();
+    else setLoading(false);
   });
 
   const getUserFromLocalStorage = async () => {

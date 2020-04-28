@@ -28,6 +28,27 @@ export default function SignupForm({ logInOption }) {
   const [passwordError, setPasswordError] = useState(null);
   const [confirmError, setConfirmError] = useState(null);
 
+  // checkUsername fires when input is blurred, checks length and then sends an api to check if unique
+  const checkUsername = () => {
+    if (usernameText.length < 6) {
+      setUsernameError("Username must be at least six letters long.");
+    } else {
+      setUsernameError(null);
+      //do the api request
+    }
+  };
+
+  // handleChange deals with checking if entries are valid and putting them in the input box
+  const handleChange = (text) => {
+    setUsernameText(text);
+    if (/[^0-9a-z_]/gi.test(text))
+      setUsernameError(
+        "Username must contain only letters, numbers and underscores."
+      );
+    else setUsernameError(null);
+  };
+
+  // handleSubmit deals with checking if fields are entered correctly before sending to api
   const handleSubmit = () => {
     // 1 - check if password and confirmpassword are the same
     if (passwordText !== confirmText) {
@@ -37,6 +58,7 @@ export default function SignupForm({ logInOption }) {
     } else {
       setConfirmError(null);
     }
+    // 2 - check if password contains both letters and numbers, and is six or more chars long
     if (
       passwordText.length < 6 ||
       !/[a-z]/.test(passwordText) ||
@@ -47,7 +69,10 @@ export default function SignupForm({ logInOption }) {
       );
       setPasswordText("");
       setConfirmText("");
+    } else {
+      setPasswordError(null);
     }
+    // Send to api
   };
 
   if (logInOption === "login") {
@@ -80,9 +105,12 @@ export default function SignupForm({ logInOption }) {
           <TextInput
             placeholder="username"
             style={styles.textInputBox}
-            onChangeText={(text) => setUsernameText(text)}
+            onChangeText={(text) => {
+              handleChange(text);
+            }}
             value={usernameText}
             maxLength={20}
+            onBlur={checkUsername}
           ></TextInput>
           <Text style={{ color: "red" }}>{usernameError}</Text>
         </View>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "754402174937",
+    "firebase_url": "https://demon-backend-2020.firebaseio.com",
+    "project_id": "demon-backend-2020",
+    "storage_bucket": "demon-backend-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754402174937:android:69318eb9cfe07e6f349bc8",
+        "android_client_info": {
+          "package_name": "com.demonapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754402174937-cq4d2mq3bgocdrcm4m63tink9kbl9ref.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCubxpRymy-tkNXe2CGJ0EYSN-md5MKfXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754402174937-cq4d2mq3bgocdrcm4m63tink9kbl9ref.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

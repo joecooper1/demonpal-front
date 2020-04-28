@@ -7,7 +7,7 @@ import Signup from "./src/signup/Signup";
 import Loading from "./src/loading/Loading";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("Joe");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
